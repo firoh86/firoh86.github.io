@@ -46,6 +46,8 @@ export function Disco({ children, pie }) {
   const [tiempo, setTiempo] = useState(0), [vista, setVista] = useState('lista');
   const [volumen, setVolumen] = useState(leerVolumen), [mudo, setMudo] = useState(false);
   useEffect(() => { const a = audio.current; if (a) { a.volume = volumen; a.muted = mudo; } }, [volumen, mudo]);
+  // ¿deja este navegador cambiar el volumen? (iPhone y iPad no: siempre va con los botones del aparato) — si no, sin barra
+  const [volumenFijo] = useState(() => { try { const a = new Audio(); a.volume = 0.5; return a.volume !== 0.5; } catch (e) { return false; } });
   const c = CANCIONES[pista], duracion = c.duracion;
   const lineas = useMemo(() => versos(c.letra), [c]);
   const sincronizada = lineas.some(l => l.t != null);
@@ -96,7 +98,7 @@ export function Disco({ children, pie }) {
           <button type="button" className="mando mando--principal" onClick={alternar} aria-label={sonando ? t('Pausa', 'Pause') : t('Reproducir', 'Play')}><Simbolo n={sonando ? 'pausa' : 'play'} /></button>
           <button type="button" className="mando" onClick={siguiente} disabled={pista === CANCIONES.length - 1} aria-label={t('Siguiente', 'Next')}><Simbolo n="adelante" /></button>
           {/* el volumen, a la derecha de los mandos: el altavoz silencia y la barra ajusta */}
-          <div className="volumen">
+          <div className={'volumen' + (volumenFijo ? ' volumen--fijo' : '')}>
             <button type="button" className="volumen-boton" onClick={() => setMudo(!mudo)} aria-label={mudo ? t('Activar sonido', 'Unmute') : t('Silenciar', 'Mute')} aria-pressed={mudo}>
               <Simbolo n={mudo || volumen === 0 ? 'mudo' : 'volumen'} />
             </button>

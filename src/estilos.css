@@ -197,8 +197,14 @@ a.tarjeta:hover .tarjeta-accion .icono { transform: translateX(3px); }
 .volumen input:focus { outline: none; }
 .volumen input:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 4px color-mix(in srgb, var(--acento) 30%, transparent); }
 .volumen input:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 4px color-mix(in srgb, var(--acento) 30%, transparent); }
-/* en móviles el volumen va con los botones del teléfono (iOS ni deja cambiarlo desde la web): sin barra */
-@media (hover: none) and (pointer: coarse) { .volumen input { display: none; } }
+/* donde la web no puede cambiar el volumen (iPhone, iPad), solo el altavoz para silenciar */
+.volumen--fijo input { display: none; }
+/* en pantallas estrechas los mandos no caben con la barra al lado: el volumen baja a su propia fila, a todo lo ancho */
+.mandos { flex-wrap: wrap; }
+@media (max-width: 560px) {
+  .volumen { flex-basis: 100%; margin-left: 0; }
+  .volumen input { flex: 1; width: auto; }
+}
 .mando--principal .disco-simbolo { width: 1.45rem; height: 1.45rem; }
 
 .barra { display: grid; grid-template-columns: auto 1fr auto; gap: .9rem; align-items: center; font-size: .8rem; color: var(--texto-suave); font-variant-numeric: tabular-nums; }

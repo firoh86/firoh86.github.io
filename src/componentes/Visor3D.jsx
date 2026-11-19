@@ -60,6 +60,16 @@ export function Visor3D({ src, alt, desde = 'arriba' }) {
         // al moverla, que el centro no se salga de la placa
         const lim = s.clone().multiplyScalar(0.5);
         mandos.addEventListener('change', () => { mandos.target.clamp(lim.clone().negate(), lim); });
+        // doble clic (o doble toque): vuelve a la vista del principio y a dar vueltas sola
+        const inicio = camara.position.clone();
+        const reiniciar = () => { camara.position.copy(inicio); mandos.target.set(0, 0, 0); mandos.autoRotate = true; mandos.update(); };
+        const lienzo = renderer.domElement;
+        lienzo.addEventListener('dblclick', reiniciar);
+        let ultimoToque = 0;   // en pantallas táctiles el dblclick no siempre llega: se mira el tiempo entre dos toques
+        lienzo.addEventListener('pointerup', e => {
+          if (e.pointerType !== 'touch') return;
+          if (e.timeStamp - ultimoToque < 320) { reiniciar(); ultimoToque = 0; } else ultimoToque = e.timeStamp;
+        });
         setEstado('listo');
       }, e => { if (e.total) setPct(Math.round((100 * e.loaded) / e.total)); }, () => vivo && setEstado('error'));
 
@@ -79,7 +89,7 @@ export function Visor3D({ src, alt, desde = 'arriba' }) {
     <div className="visor3d" ref={caja} role="img" aria-label={alt}>
       {estado === 'cargando' ? <span className="visor3d-aviso">{t('Cargando el modelo 3D', 'Loading the 3D model')}{pct ? ` · ${pct} %` : '…'}</span> : null}
       {estado === 'error' ? <span className="visor3d-aviso">{t('No se ha podido cargar el modelo 3D.', 'The 3D model could not be loaded.')}</span> : null}
-      {estado === 'listo' ? <span className="visor3d-pista">{t('Arrastra para girarla · clic derecho para moverla · rueda para acercar', 'Drag to turn it · right-click to move it · scroll to zoom')}</span> : null}
+      {estado === 'listo' ? <span className="visor3d-pista">{t('Arrastra para girarla · clic derecho para moverla · rueda para acercar · doble clic para volver al principio', 'Drag to turn it · right-click to move it · scroll to zoom · double-click to reset')}</span> : null}
     </div>
   );
 }
