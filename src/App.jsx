@@ -10,21 +10,22 @@ import { Juegos } from './paginas/Juegos.jsx';
 import { LaForja } from './paginas/LaForja.jsx';
 import { Aplicaciones } from './paginas/Aplicaciones.jsx';
 import { MindForge } from './paginas/MindForge.jsx';
+import { TX } from './textos.js';
 import { Privacidad } from './paginas/Privacidad.jsx';
 
 const PAGINAS = {
-  '/': { C: Inicio, titulo: ['Rubi · teclados, juegos y aplicaciones', 'Rubi · keyboards, games and apps'] },
-  '/hardware': { C: Teclados, titulo: ['Hardware · Rubi', 'Hardware · Rubi'] },
-  '/juegos': { C: Juegos, titulo: ['Juegos · Rubi', 'Games · Rubi'] },
-  '/juegos/la-forja': { C: LaForja, titulo: ['La Forja · Rubi', 'The Forge · Rubi'] },
-  '/aplicaciones': { C: Aplicaciones, titulo: ['Aplicaciones · Rubi', 'Apps · Rubi'] },
-  '/aplicaciones/mindforge': { C: MindForge, titulo: ['MindForge · Rubi', 'MindForge · Rubi'] },
-  '/privacidad': { C: Privacidad, titulo: ['Privacidad · Rubi', 'Privacy · Rubi'] },
+  '/': { C: Inicio, titulo: TX.titulos.inicio },
+  '/hardware': { C: Teclados, titulo: TX.titulos.hardware },
+  '/juegos': { C: Juegos, titulo: TX.titulos.juegos },
+  '/juegos/la-forja': { C: LaForja, titulo: TX.titulos.laForja },
+  '/aplicaciones': { C: Aplicaciones, titulo: TX.titulos.aplicaciones },
+  '/aplicaciones/mindforge': { C: MindForge, titulo: TX.titulos.mindforge },
+  '/privacidad': { C: Privacidad, titulo: TX.titulos.privacidad },
 };
 
 export function App() {
   const ruta = useRuta(), { t } = usePrefs(), p = PAGINAS[ruta] || PAGINAS['/'];
-  useEffect(() => { document.title = t(...p.titulo); }, [p, t]);
+  useEffect(() => { document.title = t(p.titulo); }, [p, t]);
   return (
     <>
       <Cabecera ruta={ruta} />

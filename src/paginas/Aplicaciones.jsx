@@ -2,22 +2,23 @@
 import { usePrefs } from '../preferencias.jsx';
 import { Portada, Seccion, Tarjeta } from '../componentes/Comunes.jsx';
 import captura from '../assets/mindforge.jpg';
+import { TX } from '../textos.js';
 
 export function Aplicaciones() {
   const { t } = usePrefs();
   return (
     <>
-      <Portada etiqueta="Software" titulo={t('Aplicaciones', 'Apps')}>
-        {t('Aplicaciones de escritorio hechas a medida: herramientas pequeñas y claras para el día a día.', 'Custom desktop apps: small, clear tools for everyday use.')}
+      <Portada etiqueta="Software" titulo={t(TX.aplicaciones.aplicaciones)}>
+        {t(TX.aplicaciones.aplicacionesDeEscritorioHechas)}
       </Portada>
-      <Seccion etiqueta={t('Escritorio', 'Desktop')} titulo={t('Las aplicaciones', 'The apps')}>
+      <Seccion etiqueta={t(TX.aplicaciones.escritorio)} titulo={t(TX.aplicaciones.lasAplicaciones)}>
         <div className="rejilla rejilla--2">
-          <Tarjeta a="/aplicaciones/mindforge" imagen={captura} etiqueta={t('Mapas mentales · gratis', 'Mind maps · free')} titulo="MindForge" accion={t('Conocer la aplicación', 'Discover the app')}>
-            {t('Mapas mentales, flujos y esquemas, con nodos de pixel art y paletas de color para quien hace juegos indie. Todo se guarda en tu ordenador.', 'Mind maps, flows and diagrams, with pixel art nodes and color palettes for indie game developers. Everything stays on your computer.')}
+          <Tarjeta a="/aplicaciones/mindforge" imagen={captura} etiqueta={t(TX.aplicaciones.mapasMentalesGratis)} titulo="MindForge" accion={t(TX.aplicaciones.conocerLaAplicacion)}>
+            {t(TX.aplicaciones.mapasMentalesFlujosY)}
           </Tarjeta>
           <div className="tarjeta tarjeta--vacia" aria-hidden="true">
-            <p className="etiqueta">{t('Próximamente', 'Coming soon')}</p>
-            <p>{t('Más aplicaciones en camino.', 'More apps on the way.')}</p>
+            <p className="etiqueta">{t(TX.aplicaciones.proximamente)}</p>
+            <p>{t(TX.aplicaciones.masAplicacionesEnCamino)}</p>
           </div>
         </div>
       </Seccion>

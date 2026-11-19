@@ -1,7 +1,7 @@
 // Idioma (español / inglés) y tema (claro / oscuro), compartidos por toda la web.
 // · El idioma empieza en el del navegador (español si empieza por "es"; si no, inglés) y se recuerda.
 // · El tema empieza en el del sistema y, si lo cambias, se recuerda (index.html lo aplica antes de pintar).
-// En los componentes: const { t } = usePrefs(); t('Hola', 'Hello').
+// En los componentes: const { t } = usePrefs(); t(TX.inicio.lema) (los textos están en src/textos.js).
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 const leer = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
@@ -19,7 +19,8 @@ export function Preferencias({ children }) {
   useEffect(() => { document.documentElement.dataset.tema = tema; }, [tema]);
   const v = useMemo(() => ({
     idioma, tema,
-    t: (es, en) => (idioma === 'es' ? es : en),
+    // t(TX.inicio.lema) con los textos de src/textos.js ({ es, en }), o t('Hola', 'Hello') para algo suelto
+    t: (es, en) => (es && typeof es === 'object' ? (idioma === 'es' ? es.es : es.en ?? es.es) : idioma === 'es' ? es : en),
     cambiarIdioma: () => { const n = idioma === 'es' ? 'en' : 'es'; setIdioma(n); guardar('rubi.idioma', n); },
     cambiarTema: () => { const n = tema === 'oscuro' ? 'claro' : 'oscuro'; setTema(n); guardar('rubi.tema', n); },
   }), [idioma, tema]);

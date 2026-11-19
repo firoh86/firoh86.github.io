@@ -7,6 +7,7 @@ import { usePrefs } from '../preferencias.jsx';
 import { Portada, Seccion } from '../componentes/Comunes.jsx';
 import { Visor3D } from '../componentes/Visor3D.jsx';
 import { PLACAS } from '../teclados/placas.js';
+import { TX } from '../textos.js';
 
 function Placa({ p, n, abierta, alternar }) {
   const { t } = usePrefs(), tr = par => (par ? t(par[0], par[1]) : '');
@@ -30,7 +31,7 @@ function Placa({ p, n, abierta, alternar }) {
           {abierta ? (
             <div className={'placa-ficha-dentro' + (p.modelo || p.imagen ? '' : ' placa-ficha-dentro--sola')}>
               {p.modelo || p.imagen ? <div className="placa-medios">
-                {p.modelo ? <Visor3D src={p.modelo} desde={p.desde} alt={t('Modelo 3D de la placa ', '3D model of the board ') + p.nombre} />
+                {p.modelo ? <Visor3D src={p.modelo} desde={p.desde} alt={t(TX.hardware.modelo3dDeLa) + p.nombre} />
                   : <img className="placa-imagen-grande" src={p.imagen} alt={p.nombre} />}
               </div> : null}
               <div className="placa-datos">
@@ -51,17 +52,17 @@ export function Teclados() {
   const [abierta, setAbierta] = useState(null);   // al entrar, todas cerradas
   return (
     <>
-      <Portada etiqueta={t('Hardware', 'Hardware')} titulo={t('Teclados mecánicos', 'Mechanical keyboards')}>
-        {t('Teclados hechos a medida: la distribución, la carcasa, el ángulo y el tacto, pensados para escribir a gusto muchas horas.', 'Keyboards made to measure: layout, case, angle and feel, designed for long hours of comfortable typing.')}
+      <Portada etiqueta={t(TX.hardware.hardware)} titulo={t(TX.hardware.tecladosMecanicos)}>
+        {t(TX.hardware.tecladosHechosAMedida)}
       </Portada>
 
-      <Seccion etiqueta={t('El taller', 'The workshop')} titulo={t('De placa en placa', 'Board by board')}>
+      <Seccion etiqueta={t(TX.hardware.elTaller)} titulo={t(TX.hardware.dePlacaEnPlaca)}>
         <div className="texto" style={{ marginBottom: '3rem' }}>
-          <p>{t('Cada teclado empieza en una placa: el circuito que diseño en KiCad, con su distribución de teclas, sus conexiones y el microcontrolador. Aquí están en orden, de la primera a la última, para que se vea cómo han ido cambiando. Pulsa una para abrir su ficha y girar su modelo 3D.', 'Every keyboard starts as a board: the circuit I design in KiCad, with its key layout, its connections and the microcontroller. Here they are in order, from the first to the latest, so you can see how they have changed. Tap one to open its sheet and spin its 3D model.')}</p>
+          <p>{t(TX.hardware.cadaTecladoEmpiezaEn)}</p>
         </div>
         <ol className="linea-placas">
           {PLACAS.map((p, i) => <Placa key={p.id} p={p} n={i + 1} abierta={abierta === p.id} alternar={() => setAbierta(abierta === p.id ? null : p.id)} />)}
-          <li className="placa placa--siguiente"><span className="placa-nodo" aria-hidden="true" /><p>{t('La siguiente, en el taller.', 'The next one, in the workshop.')}</p></li>
+          <li className="placa placa--siguiente"><span className="placa-nodo" aria-hidden="true" /><p>{t(TX.hardware.laSiguienteEnEl)}</p></li>
         </ol>
       </Seccion>
     </>

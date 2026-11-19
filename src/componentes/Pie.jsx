@@ -5,19 +5,20 @@ import { Marca } from './Marca.jsx';
 import { Icono } from './Iconos.jsx';
 import { Caja } from './Comunes.jsx';
 import { Enlace } from '../ruta.jsx';
+import { TX } from '../textos.js';
 
 export function Pie() {
   const { t } = usePrefs();
   const redes = [
     ['github', 'GitHub', ENLACES.github], ['instagram', 'Instagram', ENLACES.instagram], ['youtube', 'YouTube', ENLACES.youtube],
-    ['correo', t('Correo', 'Email'), ENLACES.correo && ENLACES.correo.usuario ? () => escribir() : null], ['corazon', t('Apoyar', 'Support'), ENLACES.donar],
+    ['correo', t(TX.pie.correo), ENLACES.correo && ENLACES.correo.usuario ? () => escribir() : null], ['corazon', t(TX.pie.apoyar), ENLACES.donar],
   ].filter(r => r[2]);
   return (
     <footer className="pie">
       <Caja className="pie-fila">
         <div>
           <Marca alto="1.6rem" />
-          <p className="pie-texto">{t('Teclados, juegos y aplicaciones, hechos a mano.', 'Keyboards, games and apps, handmade.')}</p>
+          <p className="pie-texto">{t(TX.pie.tecladosJuegosYAplicaciones)}</p>
         </div>
         <ul className="pie-redes">
           {redes.map(([icono, nombre, href]) => (
@@ -27,7 +28,7 @@ export function Pie() {
           ))}
         </ul>
       </Caja>
-      <Caja><p className="pie-legal">© 2026 Rubi · <Enlace a="/privacidad">{t('Privacidad', 'Privacy')}</Enlace></p></Caja>
+      <Caja><p className="pie-legal">© 2026 Rubi · <Enlace a="/privacidad">{t(TX.pie.privacidad)}</Enlace></p></Caja>
     </footer>
   );
 }

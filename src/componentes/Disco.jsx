@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { usePrefs } from '../preferencias.jsx';
 import { CANCIONES, versos } from '../disco/canciones.js';
 import etiqueta from '../assets/etiqueta-forja.jpg';
+import { TX } from '../textos.js';
 
 const RUTA = './disco/';
 const reloj = s => { s = Math.max(0, Math.floor(s || 0)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
@@ -69,7 +70,7 @@ export function Disco({ children, pie }) {
   useEffect(() => {
     const ms = navigator.mediaSession;
     if (!ms || typeof MediaMetadata === 'undefined') return;
-    ms.metadata = new MediaMetadata({ title: c.titulo, artist: 'Rubi', album: t('La Forja · Banda sonora', 'The Forge · Soundtrack') });
+    ms.metadata = new MediaMetadata({ title: c.titulo, artist: 'Rubi', album: t(TX.disco.laForjaBandaSonora) });
     const acciones = { play: () => tocar(pista), pause: () => audio.current.pause(), previoustrack: anterior, nexttrack: siguiente };
     for (const [k, f] of Object.entries(acciones)) { try { ms.setActionHandler(k, f); } catch (e) { /* no soportada */ } }
   });
@@ -94,27 +95,27 @@ export function Disco({ children, pie }) {
           <h3 className="ahora-titulo">{c.titulo}</h3>
         </div>
         <div className="mandos">
-          <button type="button" className="mando" onClick={anterior} aria-label={t('Anterior', 'Previous')}><Simbolo n="atras" /></button>
-          <button type="button" className="mando mando--principal" onClick={alternar} aria-label={sonando ? t('Pausa', 'Pause') : t('Reproducir', 'Play')}><Simbolo n={sonando ? 'pausa' : 'play'} /></button>
-          <button type="button" className="mando" onClick={siguiente} disabled={pista === CANCIONES.length - 1} aria-label={t('Siguiente', 'Next')}><Simbolo n="adelante" /></button>
+          <button type="button" className="mando" onClick={anterior} aria-label={t(TX.disco.anterior)}><Simbolo n="atras" /></button>
+          <button type="button" className="mando mando--principal" onClick={alternar} aria-label={sonando ? t(TX.disco.pausa) : t(TX.disco.reproducir)}><Simbolo n={sonando ? 'pausa' : 'play'} /></button>
+          <button type="button" className="mando" onClick={siguiente} disabled={pista === CANCIONES.length - 1} aria-label={t(TX.disco.siguiente)}><Simbolo n="adelante" /></button>
           {/* el volumen, a la derecha de los mandos: el altavoz silencia y la barra ajusta */}
           <div className={'volumen' + (volumenFijo ? ' volumen--fijo' : '')}>
-            <button type="button" className="volumen-boton" onClick={() => setMudo(!mudo)} aria-label={mudo ? t('Activar sonido', 'Unmute') : t('Silenciar', 'Mute')} aria-pressed={mudo}>
+            <button type="button" className="volumen-boton" onClick={() => setMudo(!mudo)} aria-label={mudo ? t(TX.disco.activarSonido) : t(TX.disco.silenciar)} aria-pressed={mudo}>
               <Simbolo n={mudo || volumen === 0 ? 'mudo' : 'volumen'} />
             </button>
-            <input type="range" min="0" max="1" step="0.01" value={mudo ? 0 : volumen} style={{ '--p': (mudo ? 0 : volumen * 100) + '%' }} aria-label={t('Volumen', 'Volume')}
+            <input type="range" min="0" max="1" step="0.01" value={mudo ? 0 : volumen} style={{ '--p': (mudo ? 0 : volumen * 100) + '%' }} aria-label={t(TX.disco.volumen)}
               onChange={e => { const v = +e.target.value; setVolumen(v); setMudo(false); guardarVolumen(v); }} />
           </div>
         </div>
         <div className="barra">
           <span>{reloj(tiempo)}</span>
-          <input type="range" min="0" max={duracion} step="0.1" value={tiempo} style={{ '--p': p + '%' }} aria-label={t('Posición en la canción', 'Position in the song')}
+          <input type="range" min="0" max={duracion} step="0.1" value={tiempo} style={{ '--p': p + '%' }} aria-label={t(TX.disco.posicionEnLaCancion)}
             onChange={e => { const v = +e.target.value; setTiempo(v); audio.current.currentTime = v; }} />
           <span>{reloj(duracion)}</span>
         </div>
         <div className="pestanas" role="tablist">
-          <button type="button" role="tab" aria-selected={vista === 'lista'} className={vista === 'lista' ? 'activa' : ''} onClick={() => setVista('lista')}>{t('Canciones', 'Songs')}</button>
-          <button type="button" role="tab" aria-selected={vista === 'letra'} className={vista === 'letra' ? 'activa' : ''} onClick={() => setVista('letra')}>{t('Letra', 'Lyrics')}</button>
+          <button type="button" role="tab" aria-selected={vista === 'lista'} className={vista === 'lista' ? 'activa' : ''} onClick={() => setVista('lista')}>{t(TX.disco.canciones)}</button>
+          <button type="button" role="tab" aria-selected={vista === 'letra'} className={vista === 'letra' ? 'activa' : ''} onClick={() => setVista('letra')}>{t(TX.disco.letra)}</button>
         </div>
         {vista === 'lista' ? (
           <ol className="lista-canciones lista-canciones--reproductor">
@@ -134,7 +135,7 @@ export function Disco({ children, pie }) {
               ? <p key={i} className={'letra-linea' + (i === actual ? ' letra-linea--ahora' : '') + (sincronizada && l.t != null ? ' letra-linea--salto' : '')}
                   onClick={sincronizada && l.t != null ? () => { audio.current.currentTime = l.t; setTiempo(l.t); if (audio.current.paused) tocar(pista); } : undefined}>{l.texto}</p>
               : <div key={i} className="letra-hueco" />))
-              : <p className="letra-vacia">{t('La letra de esta canción llegará pronto.', 'The lyrics for this song are coming soon.')}</p>}
+              : <p className="letra-vacia">{t(TX.disco.laLetraDeEsta)}</p>}
           </div>
         )}
         {pie}

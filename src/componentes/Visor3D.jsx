@@ -2,6 +2,7 @@
 // despacio hasta que alguien lo toca. three.js se carga aparte y solo cuando se abre un visor, para no pesar en la web.
 import { useEffect, useRef, useState } from 'react';
 import { usePrefs } from '../preferencias.jsx';
+import { TX } from '../textos.js';
 
 export function Visor3D({ src, alt, desde = 'arriba' }) {
   const { t } = usePrefs();
@@ -87,9 +88,9 @@ export function Visor3D({ src, alt, desde = 'arriba' }) {
 
   return (
     <div className="visor3d" ref={caja} role="img" aria-label={alt}>
-      {estado === 'cargando' ? <span className="visor3d-aviso">{t('Cargando el modelo 3D', 'Loading the 3D model')}{pct ? ` · ${pct} %` : '…'}</span> : null}
-      {estado === 'error' ? <span className="visor3d-aviso">{t('No se ha podido cargar el modelo 3D.', 'The 3D model could not be loaded.')}</span> : null}
-      {estado === 'listo' ? <span className="visor3d-pista">{t('Arrastra para girarla · clic derecho para moverla · rueda para acercar · doble clic para volver al principio', 'Drag to turn it · right-click to move it · scroll to zoom · double-click to reset')}</span> : null}
+      {estado === 'cargando' ? <span className="visor3d-aviso">{t(TX.visor3d.cargandoElModelo3d)}{pct ? ` · ${pct} %` : '…'}</span> : null}
+      {estado === 'error' ? <span className="visor3d-aviso">{t(TX.visor3d.noSeHaPodido)}</span> : null}
+      {estado === 'listo' ? <span className="visor3d-pista">{t(TX.visor3d.arrastraParaGirarlaClic)}</span> : null}
     </div>
   );
 }
