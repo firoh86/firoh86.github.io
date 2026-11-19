@@ -1,0 +1,7 @@
+/* Fuentes dentro de la web (la web no pide nada a Google). Josefin Sans para títulos y Inter para el texto; licencia OFL. */
+@font-face { font-family: 'Josefin Sans'; font-weight: 300; font-display: swap; src: url('./josefin-sans-latin-300-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Josefin Sans'; font-weight: 400; font-display: swap; src: url('./josefin-sans-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Josefin Sans'; font-weight: 600; font-display: swap; src: url('./josefin-sans-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 400; font-display: swap; src: url('./inter-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 500; font-display: swap; src: url('./inter-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 600; font-display: swap; src: url('./inter-latin-600-normal.woff2') format('woff2'); }

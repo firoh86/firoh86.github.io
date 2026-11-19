@@ -1,0 +1,6 @@
+node_modules
+dist
+
+# material de trabajo que no forma parte de la web (y pesa demasiado para GitHub)
+teclados/
+referencias/
