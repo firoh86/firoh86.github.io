@@ -28,6 +28,12 @@ oscuro, español e inglés.
 2. Añadirla en `PAGINAS` de `src/App.jsx` con su ruta y su título.
 3. Si va en el menú, añadirla en `secciones` de `componentes/Cabecera.jsx`.
 
+## Publicada
+
+En **https://firoh86.github.io** desde el 19/11/2026 (repositorio `firoh86/firoh86.github.io`, GitHub Pages).
+Se publica sola con cada `git push` a `main` (`.github/workflows/deploy.yml`: construye con `npm run build` y sube `dist/`).
+Para actualizarla: `git add .` · `git commit -m "…"` · `git push`, y en uno o dos minutos está en línea (pestaña Actions del repositorio).
+
 ## Pendiente
 
 - **Hardware · la línea de placas** (`src/teclados/placas.js`, 19/11): hechas *Mondongo RBK* (prototipo) y *Mondongo RBK · Rev1*. Quedan las siguientes placas. Por cada una: en KiCad, **Exportar → STEP/GLTF** con el archivo terminado en `.glb`, «Exportar pistas, pads y vías» marcado y «Exportar zonas» sin marcar, guardado en `teclados/NN-nombre.glb`; Claude lo aligera, le pone el barniz morado y saca la miniatura. Si faltan modelos 3D en huellas iguales, Claude los copia en el `.kicad_pcb`.
