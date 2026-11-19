@@ -49,11 +49,14 @@ export function LaForja() {
         </Disco>
       </Seccion>
 
-      <Seccion etiqueta={t('Dónde jugar', 'Where to play')} titulo={t('Pronto, en todas partes', 'Soon, everywhere')} className="seccion--suave">
+      <Seccion etiqueta={t('Dónde jugar', 'Where to play')} titulo={t('Ya en PC', 'Out now on PC')} className="seccion--suave">
         <div className="texto">
-          <p>{t('La Forja está en desarrollo. Primero llegará aquí, gratis en el navegador; después a PC (itch.io y Microsoft Store) y a Android.', 'The Forge is in development. It will arrive here first, free in your browser; then on PC (itch.io and Microsoft Store) and Android.')}</p>
+          <p>{t('La versión 1.0 ya está a la venta para Windows en itch.io. Después llegarán la Microsoft Store, Android y una versión gratis para jugar aquí, en el navegador.', 'Version 1.0 is out now for Windows on itch.io. The Microsoft Store, Android and a free version to play right here in your browser will follow.')}</p>
         </div>
-        {ENLACES.donar ? <div className="botones"><Boton href={ENLACES.donar} icono="corazon">{t('Apoyar el desarrollo', 'Support development')}</Boton></div> : null}
+        <div className="botones">
+          {ENLACES.itchJuego ? <Boton href={ENLACES.itchJuego} icono="mando" principal>{t('Comprar en itch.io', 'Buy on itch.io')}</Boton> : null}
+          {ENLACES.donar ? <Boton href={ENLACES.donar} icono="corazon">{t('Apoyar el desarrollo', 'Support development')}</Boton> : null}
+        </div>
       </Seccion>
 
       {direccion() ? <Fallos /> : null}

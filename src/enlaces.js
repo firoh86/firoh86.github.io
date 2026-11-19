@@ -2,6 +2,7 @@
 export const ENLACES = {
   github: 'https://github.com/firoh86',                // p. ej. https://github.com/tu-usuario
   youtube: 'https://www.youtube.com/@ForgeCardGame',   // el canal del disco de La Forja
+  itchJuego: 'https://rubi-la-forja.itch.io/la-forja',   // La Forja a la venta (itch.io, 19/11)
   disco: 'https://www.youtube.com/playlist?list=PLNsI95YaTyVQ',   // la lista del disco: el botón «Escuchar en YouTube» de La Forja
   instagram: 'https://www.instagram.com/rubikeyss/',   // Cuenta profesional de Instagram
   donar: 'https://www.paypal.me/firohdraw86',          // PayPal (paypal.me/…) o Ko-fi
