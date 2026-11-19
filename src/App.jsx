@@ -11,6 +11,7 @@ import { LaForja } from './paginas/LaForja.jsx';
 import { Aplicaciones } from './paginas/Aplicaciones.jsx';
 import { MindForge } from './paginas/MindForge.jsx';
 import { TX } from './textos.js';
+import { MimeticoEscondido } from './componentes/Mimetico.jsx';
 import { Privacidad } from './paginas/Privacidad.jsx';
 
 const PAGINAS = {
@@ -31,6 +32,7 @@ export function App() {
       <Cabecera ruta={ruta} />
       <main id="contenido"><p.C /></main>
       <Pie />
+      <MimeticoEscondido />
     </>
   );
 }

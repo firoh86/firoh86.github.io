@@ -190,6 +190,37 @@ export const TX = {
     },
   },
 
+  // ───────── Inicio · «En el taller»: en qué estoy ahora. Para cambiar la lista, añade, quita o edita cosas en «cosas»
+  // (cada una con su título y su texto, en español e inglés). Si «cosas» se queda vacía, la sección no sale.
+  taller: {
+    etiqueta: {
+      es: 'En el taller',
+      en: 'In the workshop',
+    },
+    titulo: {
+      es: 'Ahora mismo, entre manos',
+      en: 'What I’m working on',
+    },
+    cosas: [
+      {
+        titulo: { es: 'La Forja para Android', en: 'The Forge for Android' },
+        texto: { es: 'El juego, adaptado al móvil para jugar en cualquier parte.', en: 'The game, adapted for phones so you can play anywhere.' },
+      },
+      {
+        titulo: { es: 'La Forja en la Microsoft Store', en: 'The Forge on the Microsoft Store' },
+        texto: { es: 'Después de itch.io, la tienda de Windows.', en: 'After itch.io, the Windows store.' },
+      },
+      {
+        titulo: { es: 'Canon', en: 'Canon' },
+        texto: { es: 'Una placa con dos encoders y la fila de abajo girada 15°: rehaciendo su routing.', en: 'A board with two encoders and a bottom row turned 15°: redoing its routing.' },
+      },
+      {
+        titulo: { es: 'Un EC60', en: 'An EC60' },
+        texto: { es: 'Mi propio teclado electrocapacitivo de 60 %, en diseño.', en: 'My own 60% electro-capacitive keyboard, in design.' },
+      },
+    ],
+  },
+
   // ───────── Hardware (teclados). Las fichas de cada placa están en src/teclados/placas.js ─────────
   hardware: {
     modelo3dDeLa: {
@@ -427,6 +458,38 @@ export const TX = {
     conElAsuntoLa: {
       es: ' con el asunto «La Forja · fallo».',
       en: ' with the subject “The Forge · bug”.',
+    },
+  },
+
+  // ───────── La Forja · la versión web, jugable dentro de la página (el juego está en public/laforja/jugar/) ─────────
+  laForjaWeb: {
+    etiqueta: {
+      es: 'Pruébalo aquí',
+      en: 'Try it here',
+    },
+    titulo: {
+      es: 'Juega en el navegador',
+      en: 'Play in your browser',
+    },
+    texto: {
+      es: 'La versión web: el tutorial, Partida normal y Shuffle contra Temple, y Versus con un amigo. Tres partidas al día; el juego completo, con logros, títulos, pieles y sin límite, está en itch.io.',
+      en: 'The web version: the tutorial, Normal match and Shuffle against Temper, and Versus with a friend. Three matches a day; the full game, with achievements, titles, skins and no limit, is on itch.io.',
+    },
+    jugar: {
+      es: 'Jugar aquí',
+      en: 'Play here',
+    },
+    pantallaCompleta: {
+      es: 'Pantalla completa',
+      en: 'Full screen',
+    },
+    otraPestana: {
+      es: 'Abrir en otra pestaña',
+      en: 'Open in a new tab',
+    },
+    nota: {
+      es: 'Tu progreso se guarda en este navegador. En el móvil se juega mejor en horizontal, o en otra pestaña.',
+      en: 'Your progress is saved in this browser. On a phone it plays best in landscape, or in a new tab.',
     },
   },
 

@@ -333,3 +333,47 @@ a.tarjeta:hover .tarjeta-accion .icono { transform: translateX(3px); }
 .visor3d-aviso { top: 50%; transform: translateY(-50%); }
 .visor3d-pista { bottom: .7rem; opacity: .8; }
 @media (max-width: 760px) { .visor3d { aspect-ratio: 4 / 3; } }
+
+/* ---------- el Mimético escondido (de La Forja): una carta de tinta que a veces asoma en un lateral ---------- */
+.mimetico-capa { position: absolute; top: 0; left: 0; width: 100%; height: 0; overflow-x: clip; overflow-y: visible;   /* que la carta girada y la tinta no ensanchen la página */
+   z-index: 40; pointer-events: none; }
+.mimetico { --cw: 46px; pointer-events: auto; position: absolute; width: var(--cw); aspect-ratio: 1 / 1.38; border: 0; padding: 0; cursor: pointer; border-radius: 6px; overflow: hidden;
+  background: radial-gradient(110% 85% at 50% 0%, #21182f 0%, #100e18 48%, #08070c 100%);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, .5), inset 0 0 0 1px rgba(181, 157, 216, .24), inset 0 0 11px rgba(112, 82, 158, .16), 0 0 14px rgba(139, 127, 168, .25);
+  animation: mimeticoAsoma .7s cubic-bezier(.2, 1.4, .4, 1) both; }
+.mimetico--izq { left: clamp(6px, 2vw, 28px); }
+.mimetico--der { right: clamp(6px, 2vw, 28px); }
+.mimetico::before, .mimetico::after { content: ''; position: absolute; inset: -35%; filter: blur(2.3px);
+  background: radial-gradient(30% 25% at 32% 38%, rgba(105,77,151,.8), transparent 74%), radial-gradient(25% 32% at 68% 64%, rgba(52,67,122,.68), transparent 74%),
+    radial-gradient(20% 18% at 56% 30%, rgba(180,143,218,.54), transparent 72%), linear-gradient(135deg, transparent 34%, rgba(177,145,218,.08) 49%, transparent 62%);
+  animation: mimeticoRemolino 9s linear infinite; }
+.mimetico::after { animation-duration: 14s; animation-direction: reverse; opacity: .7; }
+.mimetico:hover { filter: brightness(1.25); }
+.mimetico:focus-visible { outline: 2px solid #b9a4ff; outline-offset: 3px; }
+@keyframes mimeticoRemolino { to { transform: rotate(360deg); } }
+@keyframes mimeticoAsoma { from { opacity: 0; translate: 0 12px; } }
+.mimetico-chispa { position: absolute; border-radius: 50%; pointer-events: none; box-shadow: 0 0 6px rgba(185, 164, 255, .6); }
+.mimetico-mas { position: absolute; pointer-events: none; font-family: var(--titulos); font-weight: 600; font-size: 1.6rem; color: #e0d4ff; text-shadow: 0 2px 0 #000, 0 0 10px rgba(185, 164, 255, .8); }
+.mimetico-aviso { position: fixed; left: 50%; bottom: 1.4rem; translate: -50% 0; margin: 0; padding: .6rem 1.1rem; border-radius: 999px; pointer-events: none;
+  background: #261f33; color: #e0d4ff; border: 1px solid #574b70; font-size: .92rem; box-shadow: 0 6px 20px rgba(0, 0, 0, .35); animation: mimeticoAviso 3.2s ease both; }
+@keyframes mimeticoAviso { 0% { opacity: 0; translate: -50% 10px; } 10%, 85% { opacity: 1; translate: -50% 0; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .mimetico, .mimetico::before, .mimetico::after, .mimetico-aviso { animation: none; } }
+
+/* ---------- Inicio · En el taller: lo que Rubi tiene entre manos, con una brasa encendida ---------- */
+.taller { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.taller-cosa { display: grid; grid-template-columns: auto 1fr; gap: .9rem; align-items: start; padding: 1.1rem 1.2rem; border: 1px solid var(--linea); border-radius: var(--radio); background: var(--superficie); }
+.taller-cosa h3 { font-family: var(--titulos); font-size: 1.15rem; color: var(--texto); margin: 0 0 .3rem; }
+.taller-cosa p { margin: 0; color: var(--texto-suave); font-size: .95rem; }
+.taller-brasa { width: .7rem; height: .7rem; margin-top: .45rem; border-radius: 50%; background: var(--acento); box-shadow: 0 0 0 0 color-mix(in srgb, var(--acento) 55%, transparent); animation: brasa 2.4s ease-out infinite; }
+@keyframes brasa { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--acento) 55%, transparent); } 70%, 100% { box-shadow: 0 0 0 .55rem transparent; } }
+@media (prefers-reduced-motion: reduce) { .taller-brasa { animation: none; } }
+
+
+/* ---------- La Forja · la versión web dentro de la página (16:9, como el escenario del juego) ---------- */
+.juego-web { aspect-ratio: 16 / 9; width: 100%; margin-top: 1.4rem; border-radius: var(--radio); overflow: hidden; background: #0d0b0a; box-shadow: var(--sombra); }
+.juego-web iframe { display: block; width: 100%; height: 100%; border: 0; }
+.juego-web-portada { position: relative; display: grid; place-items: center; width: 100%; height: 100%; padding: 0; border: 0; cursor: pointer; background: #140d09 center / cover no-repeat; }
+.juego-web-portada::before { content: ''; position: absolute; inset: 0; background: radial-gradient(closest-side, transparent 30%, rgba(0, 0, 0, .55)); transition: background .25s; }
+.juego-web-portada:hover::before { background: radial-gradient(closest-side, transparent 45%, rgba(0, 0, 0, .4)); }
+.juego-web-portada .boton { position: relative; font-size: 1.05rem; padding: .8rem 1.5rem; box-shadow: 0 8px 26px rgba(0, 0, 0, .45); }
+.juego-web + .botones { margin-top: 1rem; }

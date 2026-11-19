@@ -1,4 +1,4 @@
-// Inicio: quién es Rubi y qué hace, con la entrada a cada sección.
+// Inicio: quién es Rubi y qué hace, con la entrada a cada sección, lo que tiene entre manos (En el taller) y el apoyo.
 import { usePrefs } from '../preferencias.jsx';
 import { ENLACES } from '../enlaces.js';
 import { Marca } from '../componentes/Marca.jsx';
@@ -37,7 +37,20 @@ export function Inicio() {
         </div>
       </Seccion>
 
-      <Seccion etiqueta={t(TX.inicio.sobreMi)} titulo={t(TX.inicio.holaSoyRubi)} className="seccion--suave">
+      {TX.taller.cosas.length ? (
+        <Seccion etiqueta={t(TX.taller.etiqueta)} titulo={t(TX.taller.titulo)} className="seccion--suave">
+          <ul className="taller">
+            {TX.taller.cosas.map(c => (
+              <li key={c.titulo.es} className="taller-cosa">
+                <span className="taller-brasa" aria-hidden="true" />
+                <div><h3>{t(c.titulo)}</h3><p>{t(c.texto)}</p></div>
+              </li>
+            ))}
+          </ul>
+        </Seccion>
+      ) : null}
+
+      <Seccion etiqueta={t(TX.inicio.sobreMi)} titulo={t(TX.inicio.holaSoyRubi)}>
         <div className="texto">
           <p>{t(TX.inicio.programoSobreTodoCon)}</p>
           <p>{t(TX.inicio.estaWebReuneTodo)}</p>
@@ -51,7 +64,7 @@ export function Inicio() {
       </Seccion>
 
       {ENLACES.donar ? (
-        <Seccion etiqueta={t(TX.inicio.apoyo)} titulo={t(TX.inicio.teGustaLoQue)}>
+        <Seccion etiqueta={t(TX.inicio.apoyo)} titulo={t(TX.inicio.teGustaLoQue)} className="seccion--suave">
           <div className="texto"><p>{t(TX.inicio.siQuieresEcharUna)}</p></div>
           <div className="botones"><Boton href={ENLACES.donar} icono="corazon" principal>{t(TX.inicio.apoyar)}</Boton></div>
         </Seccion>

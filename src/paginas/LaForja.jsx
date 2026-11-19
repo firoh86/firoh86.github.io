@@ -1,6 +1,6 @@
 // La Forja: la página del juego. Lleva el diseño de la web (no el del juego), con un toque de brasa en la carta.
 import { usePrefs } from '../preferencias.jsx';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { ENLACES, escribir, direccion } from '../enlaces.js';
 import { Portada, Seccion, Boton } from '../componentes/Comunes.jsx';
 import { Icono } from '../componentes/Iconos.jsx';
@@ -34,7 +34,9 @@ export function LaForja() {
         </div>
       </Seccion>
 
-      <Seccion etiqueta={t(TX.laForja.comoJugar)} titulo={t(TX.laForja.modos)} className="seccion--suave">
+      <JugarAqui />
+
+      <Seccion etiqueta={t(TX.laForja.comoJugar)} titulo={t(TX.laForja.modos)}>
         <div className="rejilla rejilla--3">
           {modos.map(([icono, titulo, texto]) => (
             <div key={titulo} className="rasgo"><Icono n={icono} className="rasgo-icono" /><h3>{titulo}</h3><p>{texto}</p></div>
@@ -42,7 +44,7 @@ export function LaForja() {
         </div>
       </Seccion>
 
-      <Seccion etiqueta={t(TX.laForja.bandaSonora)} titulo={t(TX.laForja.unDiscoParaEl)}>
+      <Seccion etiqueta={t(TX.laForja.bandaSonora)} titulo={t(TX.laForja.unDiscoParaEl)} className="seccion--suave">
         <Disco pie={ENLACES.disco || ENLACES.youtube ? <div className="botones botones--junto"><Boton href={ENLACES.disco || ENLACES.youtube} icono="youtube">{t(TX.laForja.tambienEnYoutube)}</Boton></div> : null}>
           <div className="texto">
             <p>{t(TX.laForja.laForjaTieneSu)}</p>
@@ -50,7 +52,7 @@ export function LaForja() {
         </Disco>
       </Seccion>
 
-      <Seccion etiqueta={t(TX.laForja.dondeJugar)} titulo={t(TX.laForja.yaEnPc)} className="seccion--suave">
+      <Seccion etiqueta={t(TX.laForja.dondeJugar)} titulo={t(TX.laForja.yaEnPc)}>
         <div className="texto">
           <p>{t(TX.laForja.laVersion10)}</p>
         </div>
@@ -65,6 +67,36 @@ export function LaForja() {
   );
 }
 
+// La versión web del juego (19/11/2026), dentro de la página: 3 partidas al día, sin Extras (en el proyecto del juego,
+// src/plataforma/demo.js y `npm run build:web`; lo compilado se copia a public/laforja/jugar/). No se carga hasta que
+// alguien pulsa «Jugar aquí» (pesa ~20 MB con la música). Se abre en el idioma de la web la primera vez.
+function JugarAqui() {
+  const { t, idioma } = usePrefs(), [abierto, setAbierto] = useState(false), marco = useRef(null);
+  const src = `./laforja/jugar/index.html?idioma=${idioma}`;
+  // al pasarlo a otra pestaña, el de la página se cierra: si no, quedan dos juegos abiertos a la vez (y dos músicas)
+  const otraPestana = () => { window.open(src, '_blank', 'noopener'); setAbierto(false); };
+  const completa = () => { const el = marco.current, f = el && (el.requestFullscreen || el.webkitRequestFullscreen); if (f) f.call(el); };
+  return (
+    <Seccion etiqueta={t(TX.laForjaWeb.etiqueta)} titulo={t(TX.laForjaWeb.titulo)} className="seccion--suave">
+      <div className="texto"><p>{t(TX.laForjaWeb.texto)}</p></div>
+      <div className="juego-web">
+        {abierto
+          ? <iframe ref={marco} src={src} title={t(TX.laForja.laForja)} allow="fullscreen; autoplay; clipboard-write" allowFullScreen />
+          : <button type="button" className="juego-web-portada" style={{ backgroundImage: `url(${titulo})` }} onClick={() => setAbierto(true)}>
+              <span className="boton boton--principal"><Icono n="mando" /><span>{t(TX.laForjaWeb.jugar)}</span></span>
+            </button>}
+      </div>
+      {abierto ? (
+        <div className="botones botones--junto">
+          <Boton onClick={completa} icono="pantalla">{t(TX.laForjaWeb.pantallaCompleta)}</Boton>
+          <Boton onClick={otraPestana} icono="ventana">{t(TX.laForjaWeb.otraPestana)}</Boton>
+        </div>
+      ) : null}
+      <p className="nota">{t(TX.laForjaWeb.nota)}</p>
+    </Seccion>
+  );
+}
+
 // «¿Has encontrado un fallo?» (18/11/2026): abre el correo con un asunto y una plantilla para que el aviso llegue con lo
 // necesario. Si quien lo pulsa no tiene programa de correo, debajo aparece la dirección (montada al pulsar, nunca antes).
 function Fallos() {
@@ -74,7 +106,7 @@ function Fallos() {
     setVisto(true);
   };
   return (
-    <Seccion etiqueta={t(TX.laForja.ayudameAMejorarlo)} titulo={t(TX.laForja.hasEncontradoUnFallo)}>
+    <Seccion etiqueta={t(TX.laForja.ayudameAMejorarlo)} titulo={t(TX.laForja.hasEncontradoUnFallo)} className="seccion--suave">
       <div className="texto">
         <p>{t(TX.laForja.siAlgoNoFunciona)}</p>
       </div>

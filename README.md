@@ -45,4 +45,7 @@ Para actualizarla: `git add .` · `git commit -m "…"` · `git push`, y en uno 
 - MindForge: con cada versión nueva, actualizar `mindforgeDescarga` en `enlaces.js` (el nombre del instalador lleva la versión). Su captura (`src/assets/mindforge.jpg`) se hizo con la app en el navegador y un esquema de ejemplo.
 - El logo usa la fuente Notera 2 (licencia solo personal): comprar la licencia comercial antes de usarlo en algo con anuncios o ventas.
 - Dominio propio y GitHub Pages (ver `La_Forja_docs/diseno/hoja_de_ruta_versiones.md`). Con anuncios: página de privacidad y aviso de cookies.
-- La Forja jugable dentro de su página, cuando esté la versión web.
+- ~~La Forja jugable dentro de su página~~: hecha el 19/11 (Juegos → La Forja, «Juega en el navegador»; 3 partidas al día, sin Extras). **Para actualizarla** con una versión nueva del juego: en el proyecto del juego, `npm run build:web`, y copiar lo que hay dentro de `dist-web/` a `public/laforja/jugar/` (borrando antes lo que había).
+- **Kit de prensa de La Forja** (propuesta 4, 19/11): una página con el logo, capturas, el tráiler, la ficha (precio, plataformas, fecha) y un texto corto para medios y creadores, todo descargable.
+- **«Sobre mí / Historias del taller»** (propuesta 5, 19/11): una sección o devlog con entradas cortas de cómo nacen las placas y el juego (fotos del proceso, errores, el Mondongo, el Canon girado 15°…).
+- **En el taller** (Inicio): actualizar la lista en `textos.js` (`taller.cosas`) cuando algo se acabe o empiece.
