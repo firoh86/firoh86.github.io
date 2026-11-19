@@ -72,7 +72,7 @@ export function LaForja() {
 // alguien pulsa «Jugar aquí» (pesa ~20 MB con la música). Se abre en el idioma de la web la primera vez.
 function JugarAqui() {
   const { t, idioma } = usePrefs(), [abierto, setAbierto] = useState(false), marco = useRef(null);
-  const src = `./laforja/jugar/index.html?idioma=${idioma}`;
+  const src = `./laforja/jugar/index.html?idioma=${idioma}&v=${__CONSTRUIDA__}`;   // v: ver vite.config.js
   // al pasarlo a otra pestaña, el de la página se cierra: si no, quedan dos juegos abiertos a la vez (y dos músicas)
   const otraPestana = () => { window.open(src, '_blank', 'noopener'); setAbierto(false); };
   const completa = () => { const el = marco.current, f = el && (el.requestFullscreen || el.webkitRequestFullscreen); if (f) f.call(el); };
