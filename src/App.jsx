@@ -10,6 +10,7 @@ import { Juegos } from './paginas/Juegos.jsx';
 import { LaForja } from './paginas/LaForja.jsx';
 import { Aplicaciones } from './paginas/Aplicaciones.jsx';
 import { MindForge } from './paginas/MindForge.jsx';
+import { Privacidad } from './paginas/Privacidad.jsx';
 
 const PAGINAS = {
   '/': { C: Inicio, titulo: ['Rubi · teclados, juegos y aplicaciones', 'Rubi · keyboards, games and apps'] },
@@ -18,6 +19,7 @@ const PAGINAS = {
   '/juegos/la-forja': { C: LaForja, titulo: ['La Forja · Rubi', 'The Forge · Rubi'] },
   '/aplicaciones': { C: Aplicaciones, titulo: ['Aplicaciones · Rubi', 'Apps · Rubi'] },
   '/aplicaciones/mindforge': { C: MindForge, titulo: ['MindForge · Rubi', 'MindForge · Rubi'] },
+  '/privacidad': { C: Privacidad, titulo: ['Privacidad · Rubi', 'Privacy · Rubi'] },
 };
 
 export function App() {

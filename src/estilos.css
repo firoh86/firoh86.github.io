@@ -254,6 +254,12 @@ a.tarjeta:hover .tarjeta-accion .icono { transform: translateX(3px); }
 .pie-redes a, .pie-redes button { font: inherit; background: transparent; cursor: pointer; display: inline-flex; align-items: center; gap: .5rem; padding: .55rem 1rem; border: 1px solid var(--linea); border-radius: 999px; text-decoration: none; color: var(--texto-suave); font-size: .92rem; transition: color .2s, border-color .2s; }
 .pie-redes a:hover, .pie-redes button:hover { color: var(--acento); border-color: var(--acento); }
 .pie-legal { margin-top: 2.5rem; font-size: .82rem; color: var(--texto-suave); }
+.pie-legal a { color: inherit; text-underline-offset: 3px; }
+.pie-legal a:hover { color: var(--acento); }
+/* textos legales: subtítulos pequeños entre párrafos */
+.texto--legal h3 { font-family: var(--titulos); font-size: 1.15rem; color: var(--texto); margin-top: .8rem; }
+.texto--legal h3:first-child { margin-top: 0; }
+.texto--legal a { color: var(--acento); }
 
 /* ---------- móvil ---------- */
 @media (max-width: 640px) {

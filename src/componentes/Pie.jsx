@@ -4,6 +4,7 @@ import { ENLACES, escribir } from '../enlaces.js';
 import { Marca } from './Marca.jsx';
 import { Icono } from './Iconos.jsx';
 import { Caja } from './Comunes.jsx';
+import { Enlace } from '../ruta.jsx';
 
 export function Pie() {
   const { t } = usePrefs();
@@ -26,7 +27,7 @@ export function Pie() {
           ))}
         </ul>
       </Caja>
-      <Caja><p className="pie-legal">© 2026 Rubi</p></Caja>
+      <Caja><p className="pie-legal">© 2026 Rubi · <Enlace a="/privacidad">{t('Privacidad', 'Privacy')}</Enlace></p></Caja>
     </footer>
   );
 }
