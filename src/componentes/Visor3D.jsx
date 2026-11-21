@@ -4,13 +4,26 @@ import { useEffect, useRef, useState } from 'react';
 import { usePrefs } from '../preferencias.jsx';
 import { TX } from '../textos.js';
 
-export function Visor3D({ src, alt, desde = 'arriba' }) {
+// ¿Puede este navegador dibujar en 3D? three.js necesita WebGL 2. Sin aceleración gráfica (apagada, o una tarjeta en la
+// lista negra del navegador) no hay: Chrome ya no lo hace por software. Pasó en un Mac con Chrome y Brave (21/11).
+function hayWebgl2() {
+  try {
+    if (!window.WebGL2RenderingContext) return false;
+    const gl = document.createElement('canvas').getContext('webgl2');
+    if (!gl) return false;
+    const x = gl.getExtension('WEBGL_lose_context'); if (x) x.loseContext();   // solo era para mirar: se suelta
+    return true;
+  } catch (e) { return false; }
+}
+
+export function Visor3D({ src, alt, imagen, desde = 'arriba' }) {
   const { t } = usePrefs();
   const caja = useRef(null);
   const [estado, setEstado] = useState('cargando'), [pct, setPct] = useState(0);
 
   useEffect(() => {
     let vivo = true, limpiar = () => {};
+    if (!hayWebgl2()) { setEstado('sin3d'); return; }
     (async () => {
       const [THREE, { GLTFLoader }, { OrbitControls }, { RoomEnvironment }, { MeshoptDecoder }] = await Promise.all([
         import('three'),
@@ -21,7 +34,8 @@ export function Visor3D({ src, alt, desde = 'arriba' }) {
       ]);
       if (!vivo) return;
       const el = caja.current;
-      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      let renderer;
+      try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); } catch (e) { if (vivo) setEstado('sin3d'); return; }
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -86,6 +100,16 @@ export function Visor3D({ src, alt, desde = 'arriba' }) {
     return () => { vivo = false; limpiar(); };
   }, [src, desde]);
 
+  // sin 3D: la vista fija de la placa y cómo activarlo
+  if (estado === 'sin3d') return (
+    <div className="visor3d visor3d--sin" style={imagen ? { backgroundImage: `url(${imagen})` } : undefined}>
+      <div className="visor3d-ayuda">
+        <p className="visor3d-ayuda-titulo">{t(TX.visor3d.sin3dTitulo)}</p>
+        <p>{t(TX.visor3d.sin3dTexto)}</p>
+        <a href="https://get.webgl.org/webgl2/" target="_blank" rel="noopener noreferrer">{t(TX.visor3d.sin3dComprobar)}</a>
+      </div>
+    </div>
+  );
   return (
     <div className="visor3d" ref={caja} role="img" aria-label={alt}>
       {estado === 'cargando' ? <span className="visor3d-aviso">{t(TX.visor3d.cargandoElModelo3d)}{pct ? ` · ${pct} %` : '…'}</span> : null}

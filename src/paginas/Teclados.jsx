@@ -31,7 +31,7 @@ function Placa({ p, n, abierta, alternar }) {
           {abierta ? (
             <div className={'placa-ficha-dentro' + (p.modelo || p.imagen ? '' : ' placa-ficha-dentro--sola')}>
               {p.modelo || p.imagen ? <div className="placa-medios">
-                {p.modelo ? <Visor3D src={p.modelo} desde={p.desde} alt={t(TX.hardware.modelo3dDeLa) + p.nombre} />
+                {p.modelo ? <Visor3D src={p.modelo} imagen={p.imagen} desde={p.desde} alt={t(TX.hardware.modelo3dDeLa) + p.nombre} />
                   : <img className="placa-imagen-grande" src={p.imagen} alt={p.nombre} />}
               </div> : null}
               <div className="placa-datos">

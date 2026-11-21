@@ -267,6 +267,19 @@ export const TX = {
       es: 'No se ha podido cargar el modelo 3D.',
       en: 'The 3D model could not be loaded.',
     },
+    // cuando el navegador no puede dibujar en 3D (sin WebGL 2): se ve la foto de la placa con esto encima
+    sin3dTitulo: {
+      es: 'Tu navegador no puede mostrar el modelo 3D',
+      en: 'Your browser can’t show the 3D model',
+    },
+    sin3dTexto: {
+      es: 'Le hace falta WebGL, que suele faltar cuando el navegador no usa la tarjeta gráfica. En Chrome, Brave o Edge: Configuración → Sistema → activa «Usar aceleración gráfica (o por hardware) cuando esté disponible» y reinicia el navegador.',
+      en: 'It needs WebGL, which is usually missing when the browser isn’t using the graphics card. In Chrome, Brave or Edge: Settings → System → turn on “Use graphics (or hardware) acceleration when available” and restart the browser.',
+    },
+    sin3dComprobar: {
+      es: 'Comprobar si tu navegador tiene WebGL',
+      en: 'Check whether your browser has WebGL',
+    },
     arrastraParaGirarlaClic: {
       es: 'Arrastra para girarla · clic derecho para moverla · rueda para acercar · doble clic para volver al principio',
       en: 'Drag to turn it · right-click to move it · scroll to zoom · double-click to reset',
