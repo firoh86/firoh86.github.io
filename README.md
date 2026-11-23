@@ -15,9 +15,9 @@ oscuro, español e inglés.
 |---|---|
 | Las direcciones de fuera (GitHub, Instagram, YouTube, donaciones, correo). Si una está vacía, su botón no sale. El correo va partido (usuario y dominio, sin @) para que no lo encuentren los programas de spam; se monta al pulsar | `src/enlaces.js` |
 | Idioma y tema (se recuerdan en el navegador). En los componentes: `const { t } = usePrefs(); t('Hola', 'Hello')` | `src/preferencias.jsx` |
-| Las rutas (`#/`, `#/hardware`, `#/juegos`, `#/juegos/la-forja`, `#/aplicaciones`, `#/aplicaciones/mindforge`) y el título de cada página | `src/App.jsx`, `src/ruta.jsx` |
+| Las rutas (`#/`, `#/hardware`, `#/juegos`, `#/juegos/la-forja`, `#/aplicaciones`, `#/aplicaciones/mindforge`, `#/aplicaciones/wallpaper-solar`) y el título de cada página | `src/App.jsx`, `src/ruta.jsx` |
 | Colores (rojo de marca `#880029`, gris del nombre `#e7e7e7`), tipografía y todos los estilos | `src/estilos.css` (las variables, arriba del todo) |
-| Las páginas | `src/paginas/` (`Inicio`, `Teclados` (la de Hardware), `Juegos`, `LaForja`, `Aplicaciones`, `MindForge`) |
+| Las páginas | `src/paginas/` (`Inicio`, `Teclados` (la de Hardware), `Juegos`, `LaForja`, `Aplicaciones`, `MindForge`, `WallpaperSolar`) |
 | Piezas comunes: cabecera, pie, botones, tarjetas, secciones, portadas, iconos, el nombre del logo | `src/componentes/` |
 | El nombre «RubíKeys» (recortado del logo, sin «CANON»). Es una máscara: toma el color de donde está | `src/assets/rubikeys.png`, `componentes/Marca.jsx` |
 | Fuentes (Josefin Sans e Inter, licencia OFL, dentro de la web) | `src/fuentes/` |
@@ -43,6 +43,7 @@ Para actualizarla: `git add .` · `git commit -m "…"` · `git push`, y en uno 
 - ~~Revisar las letras y sus tiempos del disco~~: hecho por Rubi el 18/11, las 7 canciones (`src/disco/canciones.js`).
 - **Al acabar las letras, actualizar las descripciones de los vídeos de YouTube** con las letras corregidas (los subtítulos ya están bien; la letra de la descripción no). Las 7 letras sin tiempos, listas para pegar: `letras_youtube.txt` (sacadas de `canciones.js` el 18/11; si se vuelven a tocar, pedirle a Claude que lo regenere).
 - MindForge: con cada versión nueva, actualizar `mindforgeDescarga` en `enlaces.js` (el nombre del instalador lleva la versión). Su captura (`src/assets/mindforge.jpg`) se hizo con la app en el navegador y un esquema de ejemplo.
+- ~~Wallpaper Solar en Aplicaciones~~: hecho el 23/11 (Aplicaciones → Wallpaper Solar, con la simulación para probar en el navegador). **Para actualizarla** con una versión nueva: en el proyecto `wallpaper-solar`, `npm --prefix web run build:web`, y copiar lo que hay dentro de `web/dist-web/` a `public/wallpaper-solar/jugar/` (borrando antes lo que había). Con cada instalador nuevo, actualizar `wallpaperSolarDescarga` en `enlaces.js`.
 - El logo usa la fuente Notera 2 (licencia solo personal): comprar la licencia comercial antes de usarlo en algo con anuncios o ventas.
 - Dominio propio y GitHub Pages (ver `La_Forja_docs/diseno/hoja_de_ruta_versiones.md`). Con anuncios: página de privacidad y aviso de cookies.
 - ~~La Forja jugable dentro de su página~~: hecha el 19/11 (Juegos → La Forja, «Juega en el navegador»; 3 partidas al día, sin Extras). **Para actualizarla** con una versión nueva del juego: en el proyecto del juego, `npm run build:web`, y copiar lo que hay dentro de `dist-web/` a `public/laforja/jugar/` (borrando antes lo que había).

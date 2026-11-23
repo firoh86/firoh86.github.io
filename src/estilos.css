@@ -385,3 +385,8 @@ a.tarjeta:hover .tarjeta-accion .icono { transform: translateX(3px); }
 .juego-web-portada:hover::before { background: radial-gradient(closest-side, transparent 45%, rgba(0, 0, 0, .4)); }
 .juego-web-portada .boton { position: relative; font-size: 1.05rem; padding: .8rem 1.5rem; box-shadow: 0 8px 26px rgba(0, 0, 0, .45); }
 .juego-web + .botones { margin-top: 1rem; }
+
+/* Wallpaper Solar en el navegador (página de la aplicación): fondo del espacio y, en el móvil, más alto que ancho para
+   que quepan los mandos de la simulación y quede sitio para el Sistema Solar. */
+.juego-web--solar { background: #030508; }
+@media (max-width: 700px) { .juego-web--solar { aspect-ratio: 3 / 4; } }

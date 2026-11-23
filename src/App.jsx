@@ -10,6 +10,7 @@ import { Juegos } from './paginas/Juegos.jsx';
 import { LaForja } from './paginas/LaForja.jsx';
 import { Aplicaciones } from './paginas/Aplicaciones.jsx';
 import { MindForge } from './paginas/MindForge.jsx';
+import { WallpaperSolar } from './paginas/WallpaperSolar.jsx';
 import { TX } from './textos.js';
 import { MimeticoEscondido } from './componentes/Mimetico.jsx';
 import { Privacidad } from './paginas/Privacidad.jsx';
@@ -21,6 +22,7 @@ const PAGINAS = {
   '/juegos/la-forja': { C: LaForja, titulo: TX.titulos.laForja },
   '/aplicaciones': { C: Aplicaciones, titulo: TX.titulos.aplicaciones },
   '/aplicaciones/mindforge': { C: MindForge, titulo: TX.titulos.mindforge },
+  '/aplicaciones/wallpaper-solar': { C: WallpaperSolar, titulo: TX.titulos.wallpaperSolar },
   '/privacidad': { C: Privacidad, titulo: TX.titulos.privacidad },
 };
 

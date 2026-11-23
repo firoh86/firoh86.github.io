@@ -32,6 +32,10 @@ export const TX = {
       es: 'MindForge · Rubi',
       en: 'MindForge · Rubi',
     },
+    wallpaperSolar: {
+      es: 'Wallpaper Solar · Rubi',
+      en: 'Wallpaper Solar · Rubi',
+    },
     privacidad: {
       es: 'Privacidad · Rubi',
       en: 'Privacy · Rubi',
@@ -145,8 +149,8 @@ export const TX = {
       en: 'See the apps',
     },
     aplicacionesDeEscritorioPara: {
-      es: 'Aplicaciones de escritorio para el día a día. La primera: MindForge, mapas mentales y esquemas, gratis.',
-      en: 'Desktop apps for everyday use. The first one: MindForge, free mind maps and diagrams.',
+      es: 'Aplicaciones de escritorio para el día a día: MindForge, mapas mentales y esquemas, y Wallpaper Solar, el Sistema Solar en vivo como fondo de pantalla. Gratis.',
+      en: 'Desktop apps for everyday use: MindForge, mind maps and diagrams, and Wallpaper Solar, the live Solar System as your wallpaper. Free.',
     },
     sobreMi: {
       es: 'Sobre mí',
@@ -588,6 +592,14 @@ export const TX = {
       es: 'Mapas mentales, esquemas de flujo con nodos y grupos, y nodos extra enfocados en pixel art y paletas de color para desarrolladores de juegos indie. Todo se guarda en tu ordenador.',
       en: 'Mind maps, flowcharts with nodes and groups, and extra nodes for pixel art and color palettes for indie game developers. Everything stays on your computer.',
     },
+    fondoDeEscritorioGratis: {
+      es: 'Fondo de escritorio · gratis',
+      en: 'Desktop wallpaper · free',
+    },
+    wallpaperSolarTarjeta: {
+      es: 'El Sistema Solar en tiempo real como fondo de pantalla interactivo, con una vista lunar en 3D y 41 misiones a la Luna. Pruébalo en el navegador.',
+      en: 'The Solar System in real time as an interactive wallpaper, with a 3D Moon view and 41 missions to the Moon. Try it in your browser.',
+    },
     proximamente: {
       es: 'Próximamente',
       en: 'Coming soon',
@@ -595,6 +607,158 @@ export const TX = {
     masAplicacionesEnCamino: {
       es: 'Más aplicaciones en camino.',
       en: 'More apps on the way.',
+    },
+  },
+
+  // ───────── Wallpaper Solar ─────────
+  wallpaperSolar: {
+    etiqueta: {
+      es: 'Fondo de escritorio para Windows · gratis',
+      en: 'Wallpaper for Windows · free',
+    },
+    portada: {
+      es: 'El Sistema Solar en tiempo real detrás de los iconos de tu escritorio: planetas, lunas y la Luna con sus misiones, calculados con los datos de la NASA y el JPL.',
+      en: 'The Solar System in real time behind your desktop icons: planets, moons and the Moon with its missions, computed from NASA and JPL data.',
+    },
+    probarEtiqueta: {
+      es: 'Pruébalo aquí',
+      en: 'Try it here',
+    },
+    probarTitulo: {
+      es: 'Explóralo en el navegador',
+      en: 'Explore it in your browser',
+    },
+    probarTexto: {
+      es: 'La misma simulación que se instala como fondo de escritorio. Arrastra para moverte, usa la rueda para acercarte y pulsa un planeta para ver sus datos. «Explorar Luna» (tecla L) abre la Luna en 3D con la luz del Sol de este momento y las misiones que han llegado a ella.',
+      en: 'The same simulation that installs as your desktop wallpaper. Drag to move around, use the wheel to zoom and click a planet to see its data. “Explorar Luna” (L key) opens the Moon in 3D, lit by the Sun as it is right now, with the missions that have reached it.',
+    },
+    abrir: {
+      es: 'Abrir la simulación',
+      en: 'Open the simulation',
+    },
+    pantallaCompleta: {
+      es: 'Pantalla completa',
+      en: 'Full screen',
+    },
+    otraPestana: {
+      es: 'Abrir en otra pestaña',
+      en: 'Open in a new tab',
+    },
+    nota: {
+      es: 'En el móvil: un dedo para moverte, dos para acercar y, en 3D, para girar la cámara. Se ve mejor en horizontal o a pantalla completa.',
+      en: 'The simulation is in Spanish. On a phone: one finger to move, two to zoom and, in 3D, to turn the camera. It looks best in landscape or full screen.',
+    },
+    marcoTitulo: {
+      es: 'Wallpaper Solar: simulación del Sistema Solar',
+      en: 'Wallpaper Solar: Solar System simulation',
+    },
+    lunaEtiqueta: {
+      es: 'Expansión lunar',
+      en: 'Moon expansion',
+    },
+    lunaTitulo: {
+      es: 'La Luna, como está ahora',
+      en: 'The Moon, as it is right now',
+    },
+    lunaTexto1: {
+      es: 'Un globo en 3D con el mapa real de la Lunar Reconnaissance Orbiter. El Sol la ilumina como en el instante simulado, así que ves la fase y la línea entre el día y la noche tal y como están.',
+      en: 'A 3D globe with the real map from the Lunar Reconnaissance Orbiter. The Sun lights it as at the simulated moment, so you see the phase and the line between day and night just as they are.',
+    },
+    lunaTexto2: {
+      es: '41 misiones, de Luna 2 (1959) a hoy, con filtros por tipo y país. Al elegir una, el globo gira hasta ponerla de frente.',
+      en: '41 missions, from Luna 2 (1959) to today, with filters by type and country. Pick one and the globe turns to face it.',
+    },
+    lunaAlt: {
+      es: 'La vista lunar: la Luna en cuarto creciente con los lugares de alunizaje y la ficha del Apolo 11',
+      en: 'The Moon view: a first-quarter Moon with the landing sites and the Apollo 11 card',
+    },
+    capturaAlt: {
+      es: 'Wallpaper Solar en vista 3D, con la Tierra seleccionada y sus datos',
+      en: 'Wallpaper Solar in 3D view, with Earth selected and its data',
+    },
+    incluyeEtiqueta: {
+      es: 'Qué incluye',
+      en: 'What’s inside',
+    },
+    incluyeTitulo: {
+      es: 'Funciones',
+      en: 'Features',
+    },
+    tiempoReal: {
+      es: 'En tiempo real',
+      en: 'In real time',
+    },
+    tiempoRealTexto: {
+      es: 'Sincronizado con el reloj, o acelerado hasta 30 días por segundo. Efemérides del JPL o un motor gravitatorio propio.',
+      en: 'In sync with the clock, or sped up to 30 days per second. JPL ephemerides or its own gravity engine.',
+    },
+    lunas: {
+      es: 'Planetas y lunas',
+      en: 'Planets and moons',
+    },
+    lunasTexto: {
+      es: 'Ocho planetas, Plutón y nueve lunas, en escala visual o real, en 2D o en 3D con la inclinación real de cada órbita.',
+      en: 'Eight planets, Pluto and nine moons, at visual or real scale, in 2D or in 3D with each orbit’s real tilt.',
+    },
+    luna: {
+      es: 'Vista lunar',
+      en: 'Moon view',
+    },
+    lunaRasgo: {
+      es: 'La Luna en 3D con luz real, su telemetría (fase, próximas llena y nueva) y el catálogo de misiones.',
+      en: 'The Moon in 3D with real light, its telemetry (phase, next full and new moon) and the mission catalog.',
+    },
+    escritorio: {
+      es: 'Detrás de los iconos',
+      en: 'Behind your icons',
+    },
+    escritorioTexto: {
+      es: 'Vive en el fondo del escritorio y responde al ratón y al teclado sin molestar a tus programas. Funciona con varios monitores.',
+      en: 'It lives on your desktop background and responds to mouse and keyboard without getting in your programs’ way. Works with several monitors.',
+    },
+    ligero: {
+      es: 'Ligero',
+      en: 'Lightweight',
+    },
+    ligeroTexto: {
+      es: 'Se pausa solo cuando juegas o ves algo a pantalla completa, y funciona sin conexión.',
+      en: 'It pauses itself when you play or watch something full screen, and works offline.',
+    },
+    limpio: {
+      es: 'Se instala y se va limpio',
+      en: 'Installs and leaves cleanly',
+    },
+    limpioTexto: {
+      es: 'Opción de arrancar con Windows. Se desinstala desde el icono de la bandeja sin dejar rastro.',
+      en: 'Optional start with Windows. Uninstalls from its tray icon without leaving a trace.',
+    },
+    descargarEtiqueta: {
+      es: 'Descargar',
+      en: 'Download',
+    },
+    descargarTitulo: {
+      es: 'Gratis, con el código público',
+      en: 'Free, with public source code',
+    },
+    descargarTexto: {
+      es: 'Wallpaper Solar es gratuito y su código está publicado en GitHub. Hecho con Python, three.js y WebView2.',
+      en: 'Wallpaper Solar is free and its code is published on GitHub. Built with Python, three.js and WebView2.',
+    },
+    requisitos: {
+      es: 'Para Windows 10 y 11 (64 bits). Como aún no está firmado, Windows puede avisar al abrir el instalador: pulsa «Más información» y luego «Ejecutar de todas formas».',
+      en: 'For Windows 10 and 11 (64-bit). Since it isn’t signed yet, Windows may warn you when you open the installer: click “More info” and then “Run anyway”.',
+    },
+    descargarParaWindows: {
+      es: 'Descargar para Windows',
+      en: 'Download for Windows',
+    },
+    verEnGithub: {
+      es: 'Ver en GitHub',
+      en: 'View on GitHub',
+    },
+    creditos: {
+      es: 'Mapa lunar: NASA’s Scientific Visualization Studio (datos de la LRO). Efemérides: NASA/JPL.',
+      en: 'Moon map: NASA’s Scientific Visualization Studio (LRO data). Ephemerides: NASA/JPL.',
     },
   },
 

@@ -10,6 +10,9 @@ export const ENLACES = {
   // MindForge: el instalador de su Release en GitHub. Con cada versión nueva cambia el nombre del archivo: actualízalo aquí.
   // Si está vacío, solo sale «Ver en GitHub».
   mindforgeDescarga: 'https://github.com/firoh86/mindforge/releases/download/v0.1.0/MindForge_0.1.0_x64-setup.exe',
+  wallpaperSolar: 'https://github.com/firoh86/wallpaper-solar',   // Wallpaper Solar: el código
+  // Wallpaper Solar: el instalador de su Release en GitHub. Con cada versión nueva cambia el nombre del archivo: actualízalo aquí.
+  wallpaperSolarDescarga: 'https://github.com/firoh86/wallpaper-solar/releases/download/v1.0.0/WallpaperSolar-Setup-1.0.0.exe',
   // El correo, partido y sin la arroba: así no aparece escrito en ningún sitio (ni en la página ni en el código) y los
   // programas que recorren las webs buscando correos para mandar spam no lo encuentran. Se monta solo al pulsar «Correo».
   correo: { usuario: 'firoh86', dominio: 'gmail.com' },
