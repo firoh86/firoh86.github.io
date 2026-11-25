@@ -212,7 +212,7 @@ export const TX = {
     cosas: [
       {
         titulo: { es: 'Arcana Noir', en: 'Arcana Noir' },
-        texto: { es: 'Un roguelike de tragaperras y tarot oscuro: la demo ya se juega aquí; el juego completo, pronto en itch.io.', en: 'A dark tarot slot roguelike: the demo is playable here; the full game is coming soon to itch.io.' },
+        texto: { es: 'Un roguelike de tragaperras y tarot oscuro: ya a la venta en itch.io, con la demo gratis aquí. Después, Android.', en: 'A dark tarot slot roguelike: out now on itch.io, with a free demo here. Android comes next.' },
       },
       {
         titulo: { es: 'La Forja para Android', en: 'The Forge for Android' },
@@ -337,8 +337,8 @@ export const TX = {
       en: 'Slot roguelike',
     },
     arcanaTexto: {
-      es: 'Gira una máquina maldita, paga tus diezmos al Diablo y arriesga en el Ritual. Demo gratis en el navegador.',
-      en: 'Spin a cursed machine, pay your tithes to the Devil and gamble in the Ritual. Free demo in your browser.',
+      es: 'Gira una máquina maldita, paga tus diezmos al Diablo y arriesga en el Ritual. Ya en itch.io, con demo gratis en el navegador.',
+      en: 'Spin a cursed machine, pay your tithes to the Devil and gamble in the Ritual. Out now on itch.io, with a free browser demo.',
     },
     tusCartasLleganPor: {
       es: 'Tus cartas llegan por una cinta y solo puedes jugar las primeras. Templa, gira y vence: contra un bot adaptativo, o contra un amigo.',
