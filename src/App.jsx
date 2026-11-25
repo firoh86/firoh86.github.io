@@ -8,6 +8,7 @@ import { Inicio } from './paginas/Inicio.jsx';
 import { Teclados } from './paginas/Teclados.jsx';
 import { Juegos } from './paginas/Juegos.jsx';
 import { LaForja } from './paginas/LaForja.jsx';
+import { ArcanaNoir } from './paginas/ArcanaNoir.jsx';
 import { Aplicaciones } from './paginas/Aplicaciones.jsx';
 import { MindForge } from './paginas/MindForge.jsx';
 import { WallpaperSolar } from './paginas/WallpaperSolar.jsx';
@@ -20,6 +21,7 @@ const PAGINAS = {
   '/hardware': { C: Teclados, titulo: TX.titulos.hardware },
   '/juegos': { C: Juegos, titulo: TX.titulos.juegos },
   '/juegos/la-forja': { C: LaForja, titulo: TX.titulos.laForja },
+  '/juegos/arcana-noir': { C: ArcanaNoir, titulo: TX.titulos.arcanaNoir },
   '/aplicaciones': { C: Aplicaciones, titulo: TX.titulos.aplicaciones },
   '/aplicaciones/mindforge': { C: MindForge, titulo: TX.titulos.mindforge },
   '/aplicaciones/wallpaper-solar': { C: WallpaperSolar, titulo: TX.titulos.wallpaperSolar },

@@ -386,6 +386,12 @@ a.tarjeta:hover .tarjeta-accion .icono { transform: translateX(3px); }
 .juego-web-portada .boton { position: relative; font-size: 1.05rem; padding: .8rem 1.5rem; box-shadow: 0 8px 26px rgba(0, 0, 0, .45); }
 .juego-web + .botones { margin-top: 1rem; }
 
+/* Arcana Noir en el navegador: el juego es vertical (de móvil), así que el marco va de pie y centrado. */
+.juego-web--vertical { aspect-ratio: 9 / 16; width: min(100%, 430px); margin-inline: auto; background: #0b0a0d; }
+.juego-web--vertical .juego-web-portada { background-color: #0b0a0d; background-position: center; align-items: end; padding-bottom: 12%; }
+.botones--centro { justify-content: center; }
+.destacado-imagen--arcana { background: #0b0a0d; }
+
 /* Wallpaper Solar en el navegador (página de la aplicación): fondo del espacio y, en el móvil, más alto que ancho para
    que quepan los mandos de la simulación y quede sitio para el Sistema Solar. */
 .juego-web--solar { background: #030508; }

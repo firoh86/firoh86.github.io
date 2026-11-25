@@ -24,6 +24,10 @@ export const TX = {
       es: 'La Forja · Rubi',
       en: 'The Forge · Rubi',
     },
+    arcanaNoir: {
+      es: 'Arcana Noir · Rubi',
+      en: 'Arcana Noir · Rubi',
+    },
     aplicaciones: {
       es: 'Aplicaciones · Rubi',
       en: 'Apps · Rubi',
@@ -207,6 +211,10 @@ export const TX = {
     },
     cosas: [
       {
+        titulo: { es: 'Arcana Noir', en: 'Arcana Noir' },
+        texto: { es: 'Un roguelike de tragaperras y tarot oscuro: la demo ya se juega aquí; el juego completo, pronto en itch.io.', en: 'A dark tarot slot roguelike: the demo is playable here; the full game is coming soon to itch.io.' },
+      },
+      {
         titulo: { es: 'La Forja para Android', en: 'The Forge for Android' },
         texto: { es: 'El juego, adaptado al móvil para jugar en cualquier parte.', en: 'The game, adapted for phones so you can play anywhere.' },
       },
@@ -323,6 +331,14 @@ export const TX = {
     conocerElJuego: {
       es: 'Conocer el juego',
       en: 'Discover the game',
+    },
+    arcanaEtiqueta: {
+      es: 'Roguelike de tragaperras',
+      en: 'Slot roguelike',
+    },
+    arcanaTexto: {
+      es: 'Gira una máquina maldita, paga tus diezmos al Diablo y arriesga en el Ritual. Demo gratis en el navegador.',
+      en: 'Spin a cursed machine, pay your tithes to the Devil and gamble in the Ritual. Free demo in your browser.',
     },
     tusCartasLleganPor: {
       es: 'Tus cartas llegan por una cinta y solo puedes jugar las primeras. Templa, gira y vence: contra un bot adaptativo, o contra un amigo.',
@@ -507,6 +523,126 @@ export const TX = {
     nota: {
       es: 'Tu progreso se guarda en este navegador. En el móvil se juega mejor en horizontal, o en otra pestaña.',
       en: 'Your progress is saved in this browser. On a phone it plays best in landscape, or in a new tab.',
+    },
+  },
+
+  // ───────── Arcana Noir · la página del juego ─────────
+  arcanaNoir: {
+    etiqueta: {
+      es: 'Roguelike de tragaperras y tarot oscuro',
+      en: 'Dark tarot slot roguelike',
+    },
+    lema: {
+      es: 'Has firmado un pacto con el Diablo. Haz girar la máquina, paga cada diezmo en almas y llega vivo a la última luna.',
+      en: 'You’ve signed a pact with the Devil. Spin the machine, pay every tithe in souls and make it to the last moon alive.',
+    },
+    elJuego: {
+      es: 'El juego',
+      en: 'The game',
+    },
+    giraArriesgaPaga: {
+      es: 'Gira, arriesga, paga',
+      en: 'Spin, gamble, pay',
+    },
+    altTitulo: {
+      es: 'Arcana Noir: una carta de tarot dorada con un gato negro ante la luna, junto al título del juego.',
+      en: 'Arcana Noir: a golden tarot card with a black cat before the moon, next to the game’s title.',
+    },
+    parrafo1: {
+      es: 'Una tragaperras de tres rodillos con los símbolos del tarot oscuro: lunas, ojos, cuervos, calaveras, velas, sapos… y el Gato, que copia a sus vecinos. Parejas, tríos y líneas te dan almas.',
+      en: 'A three-reel slot machine with the symbols of dark tarot: moons, eyes, crows, skulls, candles, toads… and the Cat, who copies its neighbours. Pairs, trios and lines earn you souls.',
+    },
+    parrafo2: {
+      es: 'Cada diezmo, el Diablo exige su parte. Entre uno y otro eliges símbolos nuevos, exorcizas los que sobran y compras reliquias que cambian las reglas.',
+      en: 'Every tithe, the Devil demands his share. In between you pick new symbols, exorcise the ones you don’t need and buy relics that bend the rules.',
+    },
+    parrafo3: {
+      es: 'Cuando se llenan los velos se abre el Ritual: cartas del tarot que multiplican el pote… y la Muerte escondida en cada escalón. ¿Cobras o arriesgas?',
+      en: 'When the veils fill up, the Ritual opens: tarot cards that multiply the pot… and Death hiding on every step. Cash out or gamble on?',
+    },
+    comoSeJuega: {
+      es: 'Cómo se juega',
+      en: 'How it plays',
+    },
+    elPacto: {
+      es: 'El pacto',
+      en: 'The pact',
+    },
+    lunasTitulo: {
+      es: 'Cuatro lunas, cuatro demonios',
+      en: 'Four moons, four demons',
+    },
+    lunasTexto: {
+      es: 'Cada luna trae un presagio y acaba con un demonio que te maldice a cambio de dejarte seguir. Al final espera el Diablo.',
+      en: 'Each moon brings an omen and ends with a demon who curses you in exchange for letting you go on. The Devil waits at the end.',
+    },
+    rodillosTitulo: {
+      es: 'Construye tus rodillos',
+      en: 'Build your reels',
+    },
+    rodillosTexto: {
+      es: 'Elige qué símbolos entran, exorciza los que sobran y combina las familias de Visión, Muerte y Brujería.',
+      en: 'Choose which symbols go in, exorcise the leftovers and combine the Vision, Death and Witchcraft families.',
+    },
+    reliquiasTitulo: {
+      es: 'Reliquias y marcas',
+      en: 'Relics and marks',
+    },
+    reliquiasTexto: {
+      es: 'Reliquias malditas que rompen las reglas, y marcas que te dan algo… siempre a cambio de algo.',
+      en: 'Cursed relics that break the rules, and marks that give you something… always for a price.',
+    },
+    dondeJugar: {
+      es: 'Dónde jugar',
+      en: 'Where to play',
+    },
+    prontoEnItch: {
+      es: 'Pronto en itch.io',
+      en: 'Coming soon to itch.io',
+    },
+    yaEnItch: {
+      es: 'Ya en itch.io',
+      en: 'Out now on itch.io',
+    },
+    textoPronto: {
+      es: 'El juego completo, con las cuatro lunas, el Diablo, los círculos del infierno y el Grimorio, saldrá en itch.io para jugar en el navegador y en Android. Mientras tanto, la demo de arriba es gratis.',
+      en: 'The full game, with all four moons, the Devil, the circles of hell and the Grimoire, is coming to itch.io for your browser and Android. Until then, the demo above is free.',
+    },
+    textoALaVenta: {
+      es: 'El juego completo, con las cuatro lunas, el Diablo, los círculos del infierno y el Grimorio, ya está a la venta en itch.io para jugar en el navegador y en Android.',
+      en: 'The full game, with all four moons, the Devil, the circles of hell and the Grimoire, is out now on itch.io for your browser and Android.',
+    },
+    comprarEnItch: {
+      es: 'Comprar en itch.io',
+      en: 'Buy on itch.io',
+    },
+    apoyar: {
+      es: 'Apoyar el desarrollo',
+      en: 'Support development',
+    },
+  },
+
+  // ───────── Arcana Noir · la demo, jugable dentro de la página (el juego está en public/arcana-noir/jugar/) ─────────
+  arcanaNoirWeb: {
+    etiqueta: {
+      es: 'Pruébalo aquí',
+      en: 'Try it here',
+    },
+    titulo: {
+      es: 'Juega la demo',
+      en: 'Play the demo',
+    },
+    texto: {
+      es: 'La demo llega hasta el segundo demonio: dos lunas de pacto con la máquina, el Ritual, el mercado y las marcas. Cada partida empieza de cero.',
+      en: 'The demo goes up to the second demon: two moons of the pact, with the machine, the Ritual, the market and the marks. Every run starts from scratch.',
+    },
+    jugar: {
+      es: 'Jugar la demo',
+      en: 'Play the demo',
+    },
+    nota: {
+      es: 'La demo no guarda nada en tu navegador. Con sonido se disfruta más; en el móvil, mejor en otra pestaña.',
+      en: 'The demo doesn’t save anything in your browser. It’s best with sound on; on a phone, open it in a new tab.',
     },
   },
 

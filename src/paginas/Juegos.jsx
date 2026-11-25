@@ -1,7 +1,8 @@
-// Juegos: la lista de juegos de Rubi. Hoy, La Forja.
+// Juegos: la lista de juegos de Rubi. Hoy, La Forja y Arcana Noir.
 import { usePrefs } from '../preferencias.jsx';
 import { Portada, Seccion, Tarjeta } from '../componentes/Comunes.jsx';
 import tarjetaForja from '../assets/la-forja-tarjeta.jpg';
+import tarjetaArcana from '../assets/arcana-noir-tarjeta.jpg';
 import { TX } from '../textos.js';
 
 export function Juegos() {
@@ -17,10 +18,10 @@ export function Juegos() {
             accion={t(TX.juegos.conocerElJuego)}>
             {t(TX.juegos.tusCartasLleganPor)}
           </Tarjeta>
-          <div className="tarjeta tarjeta--vacia" aria-hidden="true">
-            <p className="etiqueta">{t(TX.juegos.proximamente)}</p>
-            <p>{t(TX.juegos.masJuegosEnCamino)}</p>
-          </div>
+          <Tarjeta a="/juegos/arcana-noir" imagen={tarjetaArcana} etiqueta={t(TX.juegos.arcanaEtiqueta)} titulo="Arcana Noir"
+            accion={t(TX.juegos.conocerElJuego)}>
+            {t(TX.juegos.arcanaTexto)}
+          </Tarjeta>
         </div>
       </Seccion>
     </>

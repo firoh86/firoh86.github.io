@@ -13,6 +13,7 @@ const P = {
   pixel: <path d="M4 4h5v5H4zM9 9h5v5H9zM14 4h5v5h-5zM4 14h5v5H4zM14 14h5v5h-5z" />,
   ramas: <><circle cx="6" cy="6" r="2.5" /><circle cx="18" cy="6" r="2.5" /><circle cx="12" cy="18" r="2.5" /><path d="M6 8.5v1.5a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8.5M12 12v3.5" /></>,
   corazon: <path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" />,
+  carta: <><rect x="6" y="3" width="12" height="18" rx="2" /><path d="M12 8.5 14 12l-2 3.5-2-3.5z" /></>,
   flecha: <path d="M5 12h14M13 6l6 6-6 6" />,
   teclado: <><rect x="2.5" y="6" width="19" height="12" rx="2" /><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10" /></>,
   mando: <><path d="M6 8h12a4 4 0 0 1 4 4v1a3 3 0 0 1-5.4 1.8L15 13H9l-1.6 1.8A3 3 0 0 1 2 13v-1a4 4 0 0 1 4-4z" /><path d="M7 10.5v3M5.5 12h3M16 11h.01M18 13h.01" /></>,
